@@ -18,13 +18,22 @@ class ComplexNumber(object):
             obj.real_part=self.real_part+value
             obj.img_part=self.img_part
             return obj
+        if isinstance(value, ComplexNumber):
+            obj=ComplexNumber(0,0)
+            obj.real_part=self.real_part+value.real_part
+            obj.img_part=self.img_part+value.img_part
+            return obj
+
 
 
 if __name__=='__main__':
     num1=ComplexNumber(2,3)
     num2=ComplexNumber(3,4)
     num3=num1+2
+    num4=num1+num3
     print(num3)
     print(repr(num3))
     print(num1)
+    print(num4)
+    print(type(num4))
 
