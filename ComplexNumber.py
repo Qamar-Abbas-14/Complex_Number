@@ -12,12 +12,21 @@ class ComplexNumber(object):
         mytuple=f"ComplexNumber({self.real_part},{self.img_part})"
         return mytuple
 
+    def __add__(self, value):
+        if isinstance(value, int):
+            obj=ComplexNumber(0,0)
+            obj.real_part=self.real_part+value
+            obj.img_part=self.img_part
+            return obj
+
 
 
 
 if __name__=='__main__':
     num1=ComplexNumber(2,3)
-    s=str(num1)
-    print(s)
-    
+    num2=ComplexNumber(3,4)
+    num3=num1+2
+    print(num3)
+    print(repr(num3))
+    print(num1)
 
