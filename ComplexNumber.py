@@ -20,8 +20,6 @@ class ComplexNumber(object):
             return obj
 
 
-
-
 if __name__=='__main__':
     num1=ComplexNumber(2,3)
     num2=ComplexNumber(3,4)
