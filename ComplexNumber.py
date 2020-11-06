@@ -5,7 +5,7 @@ class ComplexNumber(object):
         self.real_part=real
 
     def __str__(self):
-        self.complex_number= str(self.real_part) +'+'+'j'+str(self.img_part)
+        self.complex_number= str(self.real_part) +'+'+str(self.img_part)+'j'
         return self.complex_number
 
     def __repr__(self):
@@ -24,6 +24,18 @@ class ComplexNumber(object):
             obj.img_part=self.img_part+value.img_part
             return obj
 
+    def __sub__(self, value):
+        if isinstance(value, int):
+            obj=ComplexNumber(0,0)
+            obj.real_part=self.real_part-value
+            obj.img_part=self.img_part
+            return obj
+        if isinstance(value, ComplexNumber):
+            obj=ComplexNumber(0,0)
+            obj.real_part=self.real_part-value.real_part
+            obj.img_part=self.img_part-value.img_part
+            return obj
+
 
 
 if __name__=='__main__':
@@ -31,9 +43,11 @@ if __name__=='__main__':
     num2=ComplexNumber(3,4)
     num3=num1+2
     num4=num1+num3
+    num5=num1-num2
     print(num3)
     print(repr(num3))
     print(num1)
     print(num4)
+    print(num5)
     print(type(num4))
 
