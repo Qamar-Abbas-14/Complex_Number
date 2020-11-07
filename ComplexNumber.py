@@ -5,8 +5,12 @@ class ComplexNumber(object):
         self.real_part=real
 
     def __str__(self):
-        self.complex_number= str(self.real_part) +'+'+str(self.img_part)+'j'
-        return self.complex_number
+        if self.img_part>=0:
+            self.complex_number= str(self.real_part) +'+'+'j'+str(self.img_part)
+            return self.complex_number
+        else:
+            self.complex_number= str(self.real_part) +'-'+'j'+(str(self.img_part*(-1)))
+            return self.complex_number
 
     def __repr__(self):
         mytuple=f"ComplexNumber({self.real_part},{self.img_part})"
@@ -39,7 +43,7 @@ class ComplexNumber(object):
 
 
 if __name__=='__main__':
-    num1=ComplexNumber(2,3)
+    num1=ComplexNumber(-2,7)
     num2=ComplexNumber(3,4)
     num3=num1+2
     num4=num1+num3
