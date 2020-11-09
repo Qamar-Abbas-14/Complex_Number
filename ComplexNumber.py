@@ -29,6 +29,8 @@ class ComplexNumber(object):
             obj.real_part=self.real_part+value.real_part
             obj.img_part=self.img_part+value.img_part
             return obj
+    def __radd__(self, value):
+        return self.__add__(value)
 
     def __sub__(self, value):
         if isinstance(value, int):
@@ -41,6 +43,8 @@ class ComplexNumber(object):
             obj.real_part=self.real_part-value.real_part
             obj.img_part=self.img_part-value.img_part
             return obj
+    def __rsub__(self, value):
+        return self.__sub__(value)
 
     def __mul__(self, value):
         if isinstance(value, int):
@@ -70,17 +74,21 @@ if __name__=='__main__':
     num3=num1+2
     num4=num1+num3
     num5=num1-num2
+    num7=2-num5
 
     print("num1 =",num1)
+    print("2+ num1 =",2+num1)
     print("num2 =",num2)
     print("num3 = num1+2 = ",num3)
     print(repr(num3))
     print("num4=num1+num3=",num4)
     print("num5=num1-num2=",num5)
-    print("num6=num5 * 10",num5*10)
-    print("num1 * num2",num1*num2)
+    print("num6=num5 * 10=",num5*10)
+    print("num1 * num2=",num1*num2)
+    print("num7=2-num5=",num7)
     
     print(num1.__dict__)
     print(num1.description)
+    print(ComplexNumber.__dict__)
     
 
